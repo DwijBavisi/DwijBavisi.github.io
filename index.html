@@ -16,5 +16,30 @@
     </wrapper>
     <div id="container" class="hidden">
     </div>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyABFuXnG_hPv9xCIwB9f9gmBExyJhIYrhY",
+    authDomain: "dwij-bavisi.firebaseapp.com",
+    databaseURL: "https://dwij-bavisi.firebaseio.com",
+    projectId: "dwij-bavisi",
+    storageBucket: "dwij-bavisi.appspot.com",
+    messagingSenderId: "526040601308",
+    appId: "1:526040601308:web:5a7a508693737101025a19",
+    measurementId: "G-BTSVPMPNWM"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
   </body>
 </html>
