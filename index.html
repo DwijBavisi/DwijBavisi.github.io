@@ -55,18 +55,14 @@
       location : window.location.href
     };
 
-    var updates = {};
-    updates['events/load'] = timestamp;
-    updates['events/log'] = timestamp;    
+    var key = firebase.database().ref().child('events').child("load").push().key;
     
-    return firebase.database().ref.update(updates)
+    var updates = {};
+    updates['events/load/' + key] = timestamp;
+    updates['events/log/' + key] = timestamp;    
+    
+    return firebase.database().ref().update(updates)
   }
-
-  var updates = {};
-  updates['/posts'] = null;
-  updates['/user-posts'] = null;
-
-  firebase.database().ref().update(updates);
 
   log();
 
