@@ -49,29 +49,26 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 
-function writeNewPost(uid, username, picture, title, body) {
-  // A post entry.
-  var postData = {
-    author: username,
-    uid: uid,
-    body: body,
-    title: title,
-    starCount: 0,
-    authorPic: picture
-  };
+  function log () {
+    var timestamp = {
+      timestamp : new Date(),
+      location : window.location.href
+    };
 
-  // Get a key for a new Post.
-  var newPostKey = firebase.database().ref().child('posts').push().key;
+    var updates = {};
+    updates['events/load'] = timestamp;
+    updates['events/log'] = timestamp;    
+    
+    return firebase.database().ref.update(updates)
+  }
 
-  // Write the new post's data simultaneously in the posts list and the user's post list.
   var updates = {};
-  updates['/posts/' + newPostKey] = postData;
-  updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+  updates['/posts'] = null;
+  updates['/user-posts'] = null;
 
-  return firebase.database().ref().update(updates);
-}
+  firebase.database().ref().update(updates);
 
-  writeNewPost("A2", "DB", "CD", "TL", "BY");
+  log();
 
 </script>
 
