@@ -47,6 +47,14 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
+  
+  function log() {
+    firebase.database().ref('log/').set({
+      timestamp: new Date()
+    });
+  }
+  
+  log();
 </script>
 
   </body>
