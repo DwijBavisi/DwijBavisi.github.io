@@ -8,10 +8,23 @@
   <meta name="author" content="DwijBavisi">
   <link rel="stylesheet" href="../../Files/Stylesheets/Main.css">
 </head>
+<body>
+  <div style="width:100%; padding-bottom:56.25%; position:relative;">
+    <iframe src="https://DwijBavisi.blogspot.com/" style="position:absolute; top:0px; left:0px; width:100%; height:100%; border: none; overflow: hidden;"></iframe>
+  </div>
   <script type="text/JavaScript">
     var title_tag = document.getElementsByTagName("title")[0];
     var title = window.location.pathname.split("/");
-    title_tag.innerHTML = title[title.length - 2] + "|" + title[title.length - 1];
+    title_tag.innerHTML = title[title.length - 2] + " | " + title[title.length - 1];
+    function setMeta() {
+      const metas = document.getElementsByTagName('meta');
+      for (let i = 0; i < metas.length; i++) {
+        if (metas[i].getAttribute('name') === "description") {
+          metas[i].setAttribute('content', "DwijBavisi.github.io | " + title);
+        }
+      }
+      return;
+    }
   </script>
 <body>
 </body>
